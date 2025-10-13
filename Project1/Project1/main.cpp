@@ -63,7 +63,7 @@ void run(char const* filename) {
         prev = sol[i];
     }
     if (check_legal(sol, num_cities)) {
-        std::cout << total << '\n';
+        std::cout << total << " " << filename << '\n';
     }
     else {
         std::cout << "Path is illegal\n";
@@ -99,5 +99,8 @@ int main(int argc, char** argv) {
     test6();
     test7();
     test8();
+    test9();
+    test10();
+    test11();
     return 0;
 }

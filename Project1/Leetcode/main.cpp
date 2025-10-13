@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <unordered_set>
+#include <queue>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ vector<vector<int>> threeSum(vector<int>& nums) {
     int size = nums.size();
     sort(nums.begin(), nums.end());
     int sum = 0;
-    return;
+
     for (int i = 0; i < size - 1; i++) {
         if (i > 0 && nums[i] == nums[i - 1]) {
             continue;
@@ -39,6 +40,12 @@ vector<vector<int>> threeSum(vector<int>& nums) {
 
 
 int main() {
+    std::vector<int> test{ 1,2 };
+    for (int i = 0; i < test.size(); i++) {
+        std::cout << i << std::endl;
+        test.pop_back();
+    }
+
     std::vector<int> limits = { 0,0,0,0 };
     threeSum(limits);
     return 0;
