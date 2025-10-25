@@ -4,10 +4,32 @@
 #include <random>
 #include <cstdio>
 
+using namespace std;
+
+int maxArea(vector<int>& height) {
+    int result = 0;
+    int left = 0;
+    int right = height.size() - 1;
+    while (left != right) {
+        int dist = right - left;
+        int heigh = min(height[left], height[right]);
+        if (result < dist * heigh) {
+            result = dist * heigh;
+        }
+        if (height[left] < height[right]) {
+            left++;
+        }
+        else {
+            right--;
+        }
+    }
+    return result;
+}
+
 int main(int argc, char** argv)
 {
-    int sum = 0;
-    int size = 10;
+    size_t sum = 0;
+    size_t size = 3000;
     //std::sscanf(argv[1], "%i", &size);  // problem size
 
     int num_tests = 200;
@@ -40,7 +62,7 @@ int main(int argc, char** argv)
         }
         // Kadane's algorithm ends here
         sum += max_so_far;
-        std::cout << max_so_far << " "; // solution
+        //std::cout << max_so_far << " "; // solution
     }
     std::cout << std::endl << sum / num_tests; // solution
 
