@@ -123,7 +123,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="3 Sum.cpp" />
+    <ClCompile Include="Best Time to Buy and Sell Stock.cpp" />
+    <ClCompile Include="Container with Most water.cpp" />
+    <ClCompile Include="Contains Duplicate.cpp" />
+    <ClCompile Include="Find Minimum in Rotated Sorted Array.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Maximum Product Subarray.cpp" />
+    <ClCompile Include="Maxumym subarray.cpp" />
+    <ClCompile Include="Number of 1 Bits.cpp" />
+    <ClCompile Include="Product of Array except Self.cpp" />
+    <ClCompile Include="Search in Rotated Sorted array.cpp" />
+    <ClCompile Include="Sum of Two Intergers.cpp" />
+    <ClCompile Include="Two Sum.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Control_Header.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

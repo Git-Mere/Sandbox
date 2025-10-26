@@ -13,10 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Binary">
+      <UniqueIdentifier>{2e8b9fce-3607-471c-8783-ef7992b25bd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Array">
+      <UniqueIdentifier>{f1507446-04ff-41d5-94ce-cc67bd3ae9c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Number of 1 Bits.cpp">
+      <Filter>Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="Two Sum.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Best Time to Buy and Sell Stock.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Contains Duplicate.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Product of Array except Self.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Maxumym subarray.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Maximum Product Subarray.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Find Minimum in Rotated Sorted Array.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Search in Rotated Sorted array.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="3 Sum.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Container with Most water.cpp">
+      <Filter>Array</Filter>
+    </ClCompile>
+    <ClCompile Include="Sum of Two Intergers.cpp">
+      <Filter>Binary</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Control_Header.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
