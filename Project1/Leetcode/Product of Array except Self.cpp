@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Array.h"
 
 vector<int> Array::productExceptSelf(vector<int>& nums) {
     vector<int> result(nums.size(), 0);

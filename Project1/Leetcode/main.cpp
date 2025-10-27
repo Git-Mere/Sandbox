@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Binary.h"
 
 int main() {
     Binary::getSum(1, 2);

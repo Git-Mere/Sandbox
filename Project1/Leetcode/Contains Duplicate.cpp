@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Array.h"
 
 bool Array::containsDuplicate(vector<int>& nums) {
     std::map<int, int> help2;

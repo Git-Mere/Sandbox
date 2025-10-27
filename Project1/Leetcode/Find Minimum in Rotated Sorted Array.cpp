@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Array.h"
 
 int Array::findMin(vector<int>& nums) {
     int size = nums.size() / 2;

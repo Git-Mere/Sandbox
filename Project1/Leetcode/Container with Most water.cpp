@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Array.h"
 
 int Array::maxArea(vector<int>& height) {
     int result = 0;

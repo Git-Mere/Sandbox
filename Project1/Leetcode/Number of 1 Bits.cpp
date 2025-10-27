@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Binary.h"
 
 int Binary::hammingWeight(int n) {
     int result = 0;

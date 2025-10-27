@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Binary.h"
 
 int Binary::getSum(int a, int b) {
     int xor_v = a ^ b;

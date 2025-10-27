@@ -60,10 +60,16 @@
     <ClCompile Include="Sum of Two Intergers.cpp">
       <Filter>Binary</Filter>
     </ClCompile>
+    <ClCompile Include="Counting Bits.cpp">
+      <Filter>Binary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Control_Header.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="Binary.h">
+      <Filter>Binary</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Array</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

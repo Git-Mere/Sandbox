@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,6 +128,7 @@
     <ClCompile Include="Best Time to Buy and Sell Stock.cpp" />
     <ClCompile Include="Container with Most water.cpp" />
     <ClCompile Include="Contains Duplicate.cpp" />
+    <ClCompile Include="Counting Bits.cpp" />
     <ClCompile Include="Find Minimum in Rotated Sorted Array.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maximum Product Subarray.cpp" />
@@ -138,7 +140,8 @@
     <ClCompile Include="Two Sum.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Control_Header.h" />
+    <ClInclude Include="Array.h" />
+    <ClInclude Include="Binary.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

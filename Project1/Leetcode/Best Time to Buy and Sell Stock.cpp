@@ -1,4 +1,4 @@
-#include "Control_Header.h"
+#include "Array.h"
 
 int Array::maxProfit(vector<int>& prices) {
     int profit = 0;
