@@ -133,6 +133,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maximum Product Subarray.cpp" />
     <ClCompile Include="Maxumym subarray.cpp" />
+    <ClCompile Include="Missing Number.cpp" />
     <ClCompile Include="Number of 1 Bits.cpp" />
     <ClCompile Include="Product of Array except Self.cpp" />
     <ClCompile Include="Search in Rotated Sorted array.cpp" />

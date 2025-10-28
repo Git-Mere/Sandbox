@@ -63,6 +63,9 @@
     <ClCompile Include="Counting Bits.cpp">
       <Filter>Binary</Filter>
     </ClCompile>
+    <ClCompile Include="Missing Number.cpp">
+      <Filter>Binary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary.h">
