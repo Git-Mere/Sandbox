@@ -17,4 +17,5 @@ namespace Binary {
 	int hammingWeight(int n);
 	vector<int> countBits(int n);
 	int missingNumber(vector<int>& nums);
+	int reverseBits(int n);
 }

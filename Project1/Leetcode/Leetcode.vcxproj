@@ -136,6 +136,7 @@
     <ClCompile Include="Missing Number.cpp" />
     <ClCompile Include="Number of 1 Bits.cpp" />
     <ClCompile Include="Product of Array except Self.cpp" />
+    <ClCompile Include="Reverse Bits.cpp" />
     <ClCompile Include="Search in Rotated Sorted array.cpp" />
     <ClCompile Include="Sum of Two Intergers.cpp" />
     <ClCompile Include="Two Sum.cpp" />
