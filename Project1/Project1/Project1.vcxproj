@@ -124,10 +124,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="tsp.cpp" />
+    <ClCompile Include="mergesort.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="tsp.h" />
+    <ClInclude Include="mergesort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

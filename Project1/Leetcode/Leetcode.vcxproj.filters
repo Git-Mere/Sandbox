@@ -19,6 +19,9 @@
     <Filter Include="Array">
       <UniqueIdentifier>{f1507446-04ff-41d5-94ce-cc67bd3ae9c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assignment">
+      <UniqueIdentifier>{215af7d1-88cd-4573-804f-7bea075dd4a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -68,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="Reverse Bits.cpp">
       <Filter>Binary</Filter>
+    </ClCompile>
+    <ClCompile Include="Mergesort.cpp">
+      <Filter>Assignment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

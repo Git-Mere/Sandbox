@@ -1,70 +1,51 @@
-#include <limits>
-#include <iostream>
-#include <algorithm>
-#include <random>
-#include <cstdio>
+#include <iostream> //cout, endl
+#include <random>  
+#include <algorithm>//copy, random_shuffle
+#include <iterator> //ostream_iterator
+#include <ctime>    //std::time (NULL) to seed srand
+#include "mergesort.h"
 
-using namespace std;
 
-int maxArea(vector<int>& height) {
-    int result = 0;
-    int left = 0;
-    int right = height.size() - 1;
-    while (left != right) {
-        int dist = right - left;
-        int heigh = min(height[left], height[right]);
-        if (result < dist * heigh) {
-            result = dist * heigh;
-        }
-        if (height[left] < height[right]) {
-            left++;
-        }
-        else {
-            right--;
-        }
-    }
-    return result;
-}
 
-int main(int argc, char** argv)
-{
-    size_t sum = 0;
-    size_t size = 3000;
-    //std::sscanf(argv[1], "%i", &size);  // problem size
+int main() {
+    const int n = 1000;
 
-    int num_tests = 200;
-    //std::sscanf(argv[2], "%i", &num_tests);  // number of experiments
-
-    // create array size n with values [-n/3,2n/3] !!!!!!!!!!!!!!!!!!!!!!!!!
-    int* a = new int[size];
-    for (int i = 0; i < size; ++i) {
-        a[i] = i - size / 3;
+    int b[10];
+    for (int i = 0; i < 10; i++) {
+        b[i] = 10 - i;
     }
 
-    // C++11 RNG
-    std::random_device rd;
-    std::mt19937 gen(rd()); // random engine
+    mergesort(b, 0, 10);
 
-    for (int experiment = 0; experiment < num_tests; ++experiment) {
-        std::shuffle(a, a + size, gen); // C++11
 
-        // Kadane's algorithm starts here
-        int max_so_far = a[0], max_ending_here = a[0];
+    //int a[n];
+    //for (int i = 0; i < n; ++i) { a[i] = i; }
 
-        for (int i = 0; i < size; ++i)
-        {
-            max_ending_here = max_ending_here + a[i];
-            if (max_so_far < max_ending_here)
-                max_so_far = max_ending_here;
+    ////    std::copy(a, a + n, std::ostream_iterator<int>(std::cout, " ")); 
+    ////    std::cout << std::endl;
 
-            if (max_ending_here < 0)
-                max_ending_here = 0;
-        }
-        // Kadane's algorithm ends here
-        sum += max_so_far;
-        //std::cout << max_so_far << " "; // solution
-    }
-    std::cout << std::endl << sum / num_tests; // solution
+    //bool OK = true;
+    //for (int i = 0; i < 5000 and OK; ++i) {
+    //    std::random_device rd;
+    //    std::mt19937 g(rd());
+    //    std::shuffle(a, a + n, g);
 
-    delete[] a;
+    //    mergesort(a, 0, n);
+
+    //    //    std::copy(a, a + n, std::ostream_iterator<int>(std::cout, " "));
+    //    //    std::cout << std::endl;
+
+    //    //check result
+    //    for (int i = 0; i < n; ++i) {
+    //        if (a[i] != i) {
+    //            std::cout << "Error at index " << i << std::endl;
+    //            OK = false;
+    //        }
+    //    }
+    //}
+
+    //if (OK) {
+    //    std::cout << "OK" << std::endl;
+    //}
+    return 1;
 }
