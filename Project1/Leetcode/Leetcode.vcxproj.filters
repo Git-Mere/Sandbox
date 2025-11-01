@@ -22,6 +22,9 @@
     <Filter Include="Assignment">
       <UniqueIdentifier>{215af7d1-88cd-4573-804f-7bea075dd4a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dynamic Programming">
+      <UniqueIdentifier>{35dd6d9c-38c4-4438-af9c-489ede87d2b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -75,6 +78,9 @@
     <ClCompile Include="Mergesort.cpp">
       <Filter>Assignment</Filter>
     </ClCompile>
+    <ClCompile Include="Climbing Stair.cpp">
+      <Filter>Dynamic Programming</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary.h">
@@ -82,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="Array.h">
       <Filter>Array</Filter>
+    </ClInclude>
+    <ClInclude Include="Dynamic Programming.h">
+      <Filter>Dynamic Programming</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
