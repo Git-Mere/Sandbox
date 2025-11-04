@@ -11,4 +11,5 @@ using namespace std;
 
 namespace DP {
 	int climbStairs(int n);
+	int coinChange(vector<int>& coins, int amount);
 }
