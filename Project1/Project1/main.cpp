@@ -3,49 +3,57 @@
 #include <algorithm>//copy, random_shuffle
 #include <iterator> //ostream_iterator
 #include <ctime>    //std::time (NULL) to seed srand
-#include "mergesort.h"
+#include "quicksort.h"
 
 
 
 int main() {
-    const int n = 1000;
+    //const int n = 10;
 
-    int b[10];
-    for (int i = 0; i < 10; i++) {
-        b[i] = 10 - i;
+    //int a[10] = {3,5,1,4,6,8,2,7,0,9};
+    //////for (int i = 0; i < 10; i++) {
+    //////    b[i] = 10 - i;
+    //////}
+
+    //quicksort(a, 0, 10);
+
+    const int n = 1000;
+    int a[n];
+    for (int i = 0; i < n; ++i) { a[i] = i; }
+
+    //    std::copy(a, a + n, std::ostream_iterator<int>(std::cout, " ")); 
+    //    std::cout << std::endl;
+
+    bool OK = true;
+    for (int i = 0; i < 5000 and OK; ++i) {
+        std::random_device rd;
+        std::mt19937 g(rd());
+        std::shuffle(a, a + n, g);
+        
+        int b[n];
+        for (int i = 0; i < n; i++) {
+            b[i] = a[i];
+        }
+
+
+        quicksort(a, 0, n);
+
+        //    std::copy(a, a + n, std::ostream_iterator<int>(std::cout, " "));
+        //    std::cout << std::endl;
+
+        //check result
+        for (int i = 0; i < n; ++i) {
+            if (a[i] != i) {
+                std::cout << "Error at index " << i << std::endl;
+                OK = false;
+            }
+        }
     }
 
-    mergesort(b, 0, 10);
+    if (OK) {
+        std::cout << "OK" << std::endl;
+    }
+    return OK;
 
-
-    //int a[n];
-    //for (int i = 0; i < n; ++i) { a[i] = i; }
-
-    ////    std::copy(a, a + n, std::ostream_iterator<int>(std::cout, " ")); 
-    ////    std::cout << std::endl;
-
-    //bool OK = true;
-    //for (int i = 0; i < 5000 and OK; ++i) {
-    //    std::random_device rd;
-    //    std::mt19937 g(rd());
-    //    std::shuffle(a, a + n, g);
-
-    //    mergesort(a, 0, n);
-
-    //    //    std::copy(a, a + n, std::ostream_iterator<int>(std::cout, " "));
-    //    //    std::cout << std::endl;
-
-    //    //check result
-    //    for (int i = 0; i < n; ++i) {
-    //        if (a[i] != i) {
-    //            std::cout << "Error at index " << i << std::endl;
-    //            OK = false;
-    //        }
-    //    }
-    //}
-
-    //if (OK) {
-    //    std::cout << "OK" << std::endl;
-    //}
     return 1;
 }
