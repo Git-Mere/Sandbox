@@ -1,7 +1,7 @@
 #include "Dynamic Programming.h"
 
 ///////////////////////// Brute-Force Recursion (Top-Down)
-int coinChange(vector<int>& coins, int amount) {
+int DP::coinChange(vector<int>& coins, int amount) {
     if (amount < 0) return -1;
     if (amount == 0) return 0;
 
@@ -17,6 +17,8 @@ int coinChange(vector<int>& coins, int amount) {
 
     return (min_count == INT_MAX) ? -1 : min_count;
 }
+
+
 
 
 ///////////////////////// Top-Down Dynamic Programming with Memoization
@@ -40,15 +42,23 @@ int solve(vector<int>& coins, int rem, vector<int>& memo) {
     return memo[rem];
 }
 
-int coinChange2(vector<int>& coins, int amount) {
+int DP::coinChange2(vector<int>& coins, int amount) {
     // memo[i] will store the min coins for amount i.
     // Initialize with -2 to indicate "not computed yet".
     vector<int> memo(amount + 1, -2);
     return solve(coins, amount, memo);
 }
 
+
+
+
+
+
+
+
+
 ///////////////////////// Approach 3: Bottom-Up Dynamic Programming (Tabulation)
-int coinChange3(vector<int>& coins, int amount) {
+int DP::coinChange3(vector<int>& coins, int amount) {
     // dp[i] will be storing the minimum number of coins required for amount i.
     // We use amount + 1 as an "infinity" value.
     vector<int> dp(amount + 1, amount + 1);
