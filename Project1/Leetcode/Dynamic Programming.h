@@ -14,4 +14,5 @@ namespace DP {
 	int coinChange(vector<int>& coins, int amount); //recursive
 	int coinChange2(vector<int>& coins, int amount); //recursive + memoization
 	int coinChange3(vector<int>& coins, int amount); //dynamic programming
+	int lengthOfLIS(vector<int>& nums);
 }
