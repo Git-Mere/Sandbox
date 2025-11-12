@@ -90,6 +90,9 @@
     <ClCompile Include="Longest Increasing Subsequence.cpp">
       <Filter>Dynamic Programming</Filter>
     </ClCompile>
+    <ClCompile Include="LCS.cpp">
+      <Filter>Dynamic Programming</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Binary.h">

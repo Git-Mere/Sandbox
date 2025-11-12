@@ -4,8 +4,12 @@
 
 
 int main() {
-    vector<int> a{ 1,2,5};
-    int test = 6;
-    cout << DP::coinChange3(a, test);
+    //vector<int> a{ 1,2,5};
+    //int test = 6;
+
+    string a{ "abc" };
+    string b{ "aea" };
+
+    cout << DP::longestCommonSubsequence(a, b);
     return 0;
 }

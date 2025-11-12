@@ -132,6 +132,7 @@
     <ClCompile Include="Contains Duplicate.cpp" />
     <ClCompile Include="Counting Bits.cpp" />
     <ClCompile Include="Find Minimum in Rotated Sorted Array.cpp" />
+    <ClCompile Include="LCS.cpp" />
     <ClCompile Include="Longest Increasing Subsequence.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maximum Product Subarray.cpp" />
