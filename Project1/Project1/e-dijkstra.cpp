@@ -26,7 +26,7 @@ struct Node {
 
 class vehiclestra {
 public:
-    vehiclestra(char const* filename, int power);
+	vehiclestra(char const* filename, int power);
 	bool dijkstra(int source);
 	void reset();
 	int Get_city() { return city_number; }
@@ -54,13 +54,12 @@ bool e_dijkstra(char const* filename, int power)
 	vehiclestra go(filename, power);
 	for (int i = 0; i < go.Get_city(); i++) {
 		if (go.dijkstra(i) == false) {
-			//int b = 2;
 			return false;
 		}
 		go.reset();
 	}
 
-    return true;
+	return true;
 }
 
 vehiclestra::vehiclestra(char const* filename, int power)
@@ -109,9 +108,9 @@ bool vehiclestra::dijkstra(int source)
 		int current_power = cur.power;
 
 		for (auto nei : cur.neighbor) {
-			//if (true_table[nei.dest]) {
-			//	continue;
-			//}
+			if (true_table[nei.dest]) {
+				continue;
+			}
 			Node* next = &data[nei.dest];
 			if (current_power - nei.distance >= 0) {
 				next->power = cur.power - nei.distance;
@@ -131,6 +130,6 @@ bool vehiclestra::dijkstra(int source)
 
 	}
 
-	return std::all_of(true_table.begin(), true_table.end(), 
+	return std::all_of(true_table.begin(), true_table.end(),
 		[](bool x) { return x == true; });
 }

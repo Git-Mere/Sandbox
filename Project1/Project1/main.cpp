@@ -67,41 +67,41 @@ int main(int argc, char** argv) {
     answer["in4"] = 177;
     answer["in5"] = 2843;
 
-    //std::cout << test0() << std::endl;
-    //std::cout << test1() << std::endl;
-    //std::cout << test2() << std::endl;
-    //std::cout << test3() << std::endl;
-    //std::cout << test4() << std::endl;
+    std::cout << test0() << std::endl;
+    std::cout << test1() << std::endl;
+    std::cout << test2() << std::endl;
+    std::cout << test3() << std::endl;
+    std::cout << test4() << std::endl;
 
-    //std::cout << test5() << std::endl;
-    //std::cout << test6() << std::endl;
-    //std::cout << test7() << std::endl;
-    //std::cout << test8() << std::endl;
-    //std::cout << test9() << std::endl;
+    std::cout << test5() << std::endl;
+    std::cout << test6() << std::endl;
+    std::cout << test7() << std::endl;
+    std::cout << test8() << std::endl;
+    std::cout << test9() << std::endl;
 
-    //std::cout << test10() << std::endl;
-    //std::cout << test11() << std::endl;
-    //std::cout << test12() << std::endl;
-    //std::cout << test13() << std::endl;
-    //std::cout << test14() << std::endl;
+    std::cout << test10() << std::endl;
+    std::cout << test11() << std::endl;
+    std::cout << test12() << std::endl;
+    std::cout << test13() << std::endl;
+    std::cout << test14() << std::endl;
 
-    //std::cout << test15() << std::endl;
-    //std::cout << test16() << std::endl;
+    std::cout << test15() << std::endl;
+    std::cout << test16() << std::endl;
     std::cout << test17() << std::endl;
     std::cout << test18() << std::endl;
     std::cout << test19() << std::endl;
 
-    //std::cout << test20() << std::endl;
-    //std::cout << test21() << std::endl;
-    //std::cout << test22() << std::endl;
-    //std::cout << test23() << std::endl;
-    //std::cout << test24() << std::endl;
+    std::cout << test20() << std::endl;
+    std::cout << test21() << std::endl;
+    std::cout << test22() << std::endl;
+    std::cout << test23() << std::endl;
+    std::cout << test24() << std::endl;
 
-    //std::cout << test25() << std::endl;
-    //std::cout << test26() << std::endl;
-    //std::cout << test27() << std::endl;
-    //std::cout << test28() << std::endl;
-    //std::cout << test29() << std::endl;
+    std::cout << test25() << std::endl;
+    std::cout << test26() << std::endl;
+    std::cout << test27() << std::endl;
+    std::cout << test28() << std::endl;
+    std::cout << test29() << std::endl;
     //if (argc == 2) { // if 1 argument is provided, assume it is test number
     //    int test = 0;
     //    std::sscanf(argv[1], "%i", &test);
