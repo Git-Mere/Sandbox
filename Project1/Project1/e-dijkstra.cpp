@@ -54,6 +54,7 @@ bool e_dijkstra(char const* filename, int power)
 	vehiclestra go(filename, power);
 	for (int i = 0; i < go.Get_city(); i++) {
 		if (go.dijkstra(i) == false) {
+			//int b = 2;
 			return false;
 		}
 		go.reset();
@@ -81,8 +82,10 @@ vehiclestra::vehiclestra(char const* filename, int power)
 
 	int start, end, length;
 	while (in >> start >> end >> length) {
-		data[start].neighbor.push_back({ end, length });
-		data[end].neighbor.push_back({ start, length });
+		if (length <= power) {
+			data[start].neighbor.push_back({ end, length });
+			data[end].neighbor.push_back({ start, length });
+		}
 	}
 
 	maximum_power = power;
@@ -94,33 +97,34 @@ bool vehiclestra::dijkstra(int source)
 	data[source].recharge = maximum_recharge;
 	que.push(data[source]);
 
-	true_table[source] = true;
-
 	while (!que.empty()) {
 		Node cur = que.top();
 		que.pop();
 
+		if (true_table[cur.city_name]) {
+			continue;
+		}
+		true_table[cur.city_name] = true;
+
 		int current_power = cur.power;
 
 		for (auto nei : cur.neighbor) {
-			if (true_table[nei.dest]) {
-				continue;
-			}
+			//if (true_table[nei.dest]) {
+			//	continue;
+			//}
 			Node* next = &data[nei.dest];
 			if (current_power - nei.distance >= 0) {
 				next->power = cur.power - nei.distance;
 				next->recharge = cur.recharge;
 				next->now_dist = nei.distance;
 				que.push(*next);
-				true_table[nei.dest] = true;
 			}
 			else {
-				if (cur.recharge != 0 && (maximum_power - nei.distance >= 0)) {
+				if (cur.recharge != 0) {
 					next->power = maximum_power - nei.distance;
 					next->recharge = cur.recharge - 1;
 					next->now_dist = nei.distance;
 					que.push(*next);
-					true_table[nei.dest] = true;
 				}
 			}
 		}
