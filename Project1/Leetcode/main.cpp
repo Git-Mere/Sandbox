@@ -4,12 +4,9 @@
 
 
 int main() {
-    //vector<int> a{ 1,2,5};
-    //int test = 6;
+    vector<string> a{ "apple","pen" };
+    string s = "applepenapple";
 
-    string a{ "abc" };
-    string b{ "aea" };
-
-    cout << DP::longestCommonSubsequence(a, b);
+    cout << DP::wordBreak(s, a);
     return 0;
 }

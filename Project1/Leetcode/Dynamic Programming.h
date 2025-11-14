@@ -14,4 +14,5 @@ namespace DP {
 	int coinChange3(vector<int>& coins, int amount); //dynamic programming
 	int lengthOfLIS(vector<int>& nums);
 	int longestCommonSubsequence(string text1, string text2);
+	bool wordBreak(string s, vector<string>& wordDict);
 }

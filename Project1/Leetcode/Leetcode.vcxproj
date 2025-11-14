@@ -146,6 +146,7 @@
     <ClCompile Include="Search in Rotated Sorted array.cpp" />
     <ClCompile Include="Sum of Two Intergers.cpp" />
     <ClCompile Include="Two Sum.cpp" />
+    <ClCompile Include="Word Break.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array.h" />
