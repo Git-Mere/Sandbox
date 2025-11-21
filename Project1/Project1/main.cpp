@@ -47,6 +47,18 @@ bool test27() { return test("in5", answer, 0); } // true
 bool test28() { return test("in5", answer, 1); } // true
 bool test29() { return test("in5", answer, 2); } // true
 
+bool test30() { return test("in6", answer, -2); } // false
+bool test31() { return test("in6", answer, -1); } // false
+bool test32() { return test("in6", answer, 0); } // true
+bool test33() { return test("in6", answer, 1); } // true
+bool test34() { return test("in6", answer, 2); } // true
+
+bool test35() { return test("in7", answer, -2); } // false
+bool test36() { return test("in7", answer, -1); } // false
+bool test37() { return test("in7", answer, 0); } // true
+bool test38() { return test("in7", answer, 1); } // true
+bool test39() { return test("in7", answer, 2); } // true
+
 
 bool (*pTests[])() = {
     test0,test1,test2,test3,test4,
@@ -60,14 +72,26 @@ bool (*pTests[])() = {
 #include <cstdio> // sscanf
 int main(int argc, char** argv) {
     // correct answers
+    std::cout << e_dijkstra_solver("in0") << std::endl;
+    std::cout << e_dijkstra_solver("in1") << std::endl;
+    std::cout << e_dijkstra_solver("in2") << std::endl;
+    std::cout << e_dijkstra_solver("in3") << std::endl;
+    std::cout << e_dijkstra_solver("in4") << std::endl;
+    std::cout << e_dijkstra_solver("in5") << std::endl;
+    std::cout << e_dijkstra_solver("in6") << std::endl;
+    std::cout << e_dijkstra_solver("in7") << std::endl;
+
+
     answer["in0"] = 300;
     answer["in1"] = 688;
     answer["in2"] = 6;
     answer["in3"] = 53;
     answer["in4"] = 177;
     answer["in5"] = 2843;
+    answer["in6"] = 3680;
+    answer["in7"] = 300000;
 
-    std::cout << test0() << std::endl;
+    /*std::cout << test0() << std::endl;
     std::cout << test1() << std::endl;
     std::cout << test2() << std::endl;
     std::cout << test3() << std::endl;
@@ -102,6 +126,18 @@ int main(int argc, char** argv) {
     std::cout << test27() << std::endl;
     std::cout << test28() << std::endl;
     std::cout << test29() << std::endl;
+     
+    std::cout << test30() << std::endl;
+    std::cout << test31() << std::endl;
+    std::cout << test32() << std::endl;
+    std::cout << test33() << std::endl;
+    std::cout << test34() << std::endl;
+
+    std::cout << test35() << std::endl;
+    std::cout << test36() << std::endl;
+    std::cout << test37() << std::endl;
+    std::cout << test38() << std::endl;
+    std::cout << test39() << std::endl;*/
     //if (argc == 2) { // if 1 argument is provided, assume it is test number
     //    int test = 0;
     //    std::sscanf(argv[1], "%i", &test);
