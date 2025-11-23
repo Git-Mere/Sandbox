@@ -110,9 +110,9 @@ int knapsackRecMemAux( std::vector<Item> const&, int const&, int, Table& );
 //function to kick start
 std::vector<int> knapsackRecMem( std::vector<Item> const& items, int const& W ) {
 	int num_items = items.size();
-    Table table;
-    /* ........... */
-
+    Table table(W + 1, std::vector<int>(num_items + 1, -1));
+    std::fill(table[0].begin(), table[0].end(), 0);
+    knapsackRecMemAux(items, W, num_items, table);
 	//print table - debugging?
     //do not delete this code
     if ( num_items + W < 50 ) { //print only if table is not too big
@@ -138,7 +138,15 @@ std::vector<int> knapsackRecMem( std::vector<Item> const& items, int const& W ) 
 
 	//figure out which items are in the bag based on the table
 	std::vector<int> bag;
-    /* ........... */
+    int start = W;
+    int first_value = table[W][num_items];
+    while (first_value > 0) {
+        auto it = std::find(table[start].begin(), table[start].end(), first_value);
+        int index = std::distance(table[start].begin(), it) - 1;
+        bag.push_back(index);
+        start -= items[index].weight;
+        first_value -= items[index].value;
+    }
 	return bag;
 }
 
@@ -146,8 +154,19 @@ std::vector<int> knapsackRecMem( std::vector<Item> const& items, int const& W ) 
 //the real recursive function
 int
 knapsackRecMemAux( std::vector<Item> const& items, int const& W, int index, Table & table ) {
-    /* ........... */
-    return 0;
+    if (index == 0 || W == 0) { table[W][index] = 0; return 0; }
+    if (table[W][index] != -1) { return table[W][index]; }
+
+
+    if (items[index - 1].weight > W) {
+        table[W][index] = knapsackRecMemAux(items, W, index - 1, table);
+    }
+    else {
+        table[W][index] = std::max(knapsackRecMemAux(items, W, index - 1, table),
+            items[index - 1].value + knapsackRecMemAux(items, W - items[index - 1].weight, index - 1, table));
+    }
+
+    return table[W][index];
 }
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
