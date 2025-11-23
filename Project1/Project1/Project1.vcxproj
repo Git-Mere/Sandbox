@@ -123,27 +123,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="e-dijkstra.cpp" />
+    <ClCompile Include="knapsack-dp.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="random.graph.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="e-dijkstra.h" />
+    <None Include="items0" />
+    <None Include="items1" />
+    <None Include="items2" />
+    <None Include="items3" />
+    <None Include="items4" />
+    <None Include="items5" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="in0" />
-    <None Include="in1" />
-    <None Include="in2" />
-    <None Include="in3" />
-    <None Include="in4" />
-    <None Include="in5" />
+    <ClInclude Include="knapsack-dp.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

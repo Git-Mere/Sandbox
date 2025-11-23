@@ -18,39 +18,33 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="random.graph.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="e-dijkstra.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="knapsack-dp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="e-dijkstra.h">
+    <None Include="items0">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="items1">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="items2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="items3">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="items4">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="items5">
+      <Filter>리소스 파일</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="knapsack-dp.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="in0">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="in1">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="in2">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="in3">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="in4">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="in5">
-      <Filter>리소스 파일</Filter>
-    </None>
   </ItemGroup>
 </Project>

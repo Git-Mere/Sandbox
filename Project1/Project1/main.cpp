@@ -1,175 +1,178 @@
-#include "e-dijkstra.h"
+#include "knapsack-dp.h"
 #include <iostream>
-#include <iomanip>
+#include <fstream> //ostream, istream
+#include <vector>
+#include <algorithm>
 
-#include <string>
-#include <map> 
+void readItems(char const* filename, std::vector<Item>& items, int& W) {
+    std::ifstream in(filename, std::ifstream::in);
+    in >> W;
 
-std::map<std::string, int> answer; // minimum range that works
-
-bool test(char const* filename, std::map<std::string, int>& answer, int offset) {
-    return e_dijkstra(filename, answer[filename] + offset);
+    Item item;
+    in >> item;
+    while (in.good()) {
+        items.push_back(item);
+        in >> item;
+    }
 }
 
-bool test0() { return test("in0", answer, -2); } // false
-bool test1() { return test("in0", answer, -1); } // false
-bool test2() { return test("in0", answer, 0); } // true
-bool test3() { return test("in0", answer, 1); } // true
-bool test4() { return test("in0", answer, 2); } // true
+void print_bag(std::vector<int> const& bag, std::vector<Item> const& store, int const& W) {
+    int total_weight = 0, total_value = 0;
+    std::vector<int>::const_iterator it = bag.begin(), it_e = bag.end();
+    for (; it != it_e; ++it) {
+        std::cout << store[*it] << " - ";
+        total_value += store[*it].value;
+        total_weight += store[*it].weight;
+    }
+    std::cout << "\nTotal grab " << total_value << " weighing " << total_weight << " (max " << W << ")\n";
+}
 
-bool test5() { return test("in1", answer, -2); } // false
-bool test6() { return test("in1", answer, -1); } // false
-bool test7() { return test("in1", answer, 0); } // true
-bool test8() { return test("in1", answer, 1); } // true
-bool test9() { return test("in1", answer, 2); } // true
+void test0() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items0", store, W);
+    std::vector<int> bag = knapsackDP(store, W);
+    print_bag(bag, store, W);
+}
 
-bool test10() { return test("in2", answer, -2); } // false
-bool test11() { return test("in2", answer, -1); } // false
-bool test12() { return test("in2", answer, 0); } // true
-bool test13() { return test("in2", answer, 1); } // true
-bool test14() { return test("in2", answer, 2); } // true
+void test1() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items1", store, W);
+    std::vector<int> bag = knapsackDP(store, W);
+    print_bag(bag, store, W);
+}
 
-bool test15() { return test("in3", answer, -2); } // false
-bool test16() { return test("in3", answer, -1); } // false
-bool test17() { return test("in3", answer, 0); } // true
-bool test18() { return test("in3", answer, 1); } // true
-bool test19() { return test("in3", answer, 2); } // true
+void test2() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items2", store, W);
+    std::vector<int> bag = knapsackDP(store, W);
+    print_bag(bag, store, W);
+}
 
-bool test20() { return test("in4", answer, -2); } // false
-bool test21() { return test("in4", answer, -1); } // false
-bool test22() { return test("in4", answer, 0); } // true
-bool test23() { return test("in4", answer, 1); } // true
-bool test24() { return test("in4", answer, 2); } // true
+void test3() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items3", store, W);
+    std::vector<int> bag = knapsackDP(store, W);
+    print_bag(bag, store, W);
+}
 
-bool test25() { return test("in5", answer, -2); } // false
-bool test26() { return test("in5", answer, -1); } // false
-bool test27() { return test("in5", answer, 0); } // true
-bool test28() { return test("in5", answer, 1); } // true
-bool test29() { return test("in5", answer, 2); } // true
+void test4() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items4", store, W);
+    std::vector<int> bag = knapsackDP(store, W);
+    print_bag(bag, store, W);
+}
 
-bool test30() { return test("in6", answer, -2); } // false
-bool test31() { return test("in6", answer, -1); } // false
-bool test32() { return test("in6", answer, 0); } // true
-bool test33() { return test("in6", answer, 1); } // true
-bool test34() { return test("in6", answer, 2); } // true
+void test5() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items5", store, W);
+    std::vector<int> bag = knapsackDP(store, W);
+    print_bag(bag, store, W);
+}
 
-bool test35() { return test("in7", answer, -2); } // false
-bool test36() { return test("in7", answer, -1); } // false
-bool test37() { return test("in7", answer, 0); } // true
-bool test38() { return test("in7", answer, 1); } // true
-bool test39() { return test("in7", answer, 2); } // true
+void test6() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items0", store, W);
+    std::vector<int> bag = knapsackRecMem(store, W);
+    print_bag(bag, store, W);
+}
+
+void test7() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items1", store, W);
+    std::vector<int> bag = knapsackRecMem(store, W);
+    print_bag(bag, store, W);
+}
+
+void test8() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items2", store, W);
+    std::vector<int> bag = knapsackRecMem(store, W);
+    print_bag(bag, store, W);
+}
+
+void test9() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items3", store, W);
+    std::vector<int> bag = knapsackRecMem(store, W);
+    print_bag(bag, store, W);
+}
+
+void test10() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items4", store, W);
+    std::vector<int> bag = knapsackRecMem(store, W);
+    print_bag(bag, store, W);
+}
+
+void test11() {
+    int W = 0;
+    std::vector<Item> store;
+    readItems("items5", store, W);
+    std::vector<int> bag = knapsackRecMem(store, W);
+    print_bag(bag, store, W);
+}
 
 
-bool (*pTests[])() = {
-    test0,test1,test2,test3,test4,
-    test5,test6,test7,test8,test9,
-    test10,test11,test12,test13,test14,
-    test15,test16,test17,test18,test19,
-    test20,test21,test22,test23,test24,
-    test25,test26,test27,test28,test29,
+void (*pTests[])() = {
+    test0,test1,test2,test3,test4,test5,
+    test6,test7,test8,test9,test10,test11
 };
 
-#include <cstdio> // sscanf
-int main(int argc, char** argv) {
-    // correct answers
-    std::cout << e_dijkstra_solver("in0") << std::endl;
-    std::cout << e_dijkstra_solver("in1") << std::endl;
-    std::cout << e_dijkstra_solver("in2") << std::endl;
-    std::cout << e_dijkstra_solver("in3") << std::endl;
-    std::cout << e_dijkstra_solver("in4") << std::endl;
-    std::cout << e_dijkstra_solver("in5") << std::endl;
-    std::cout << e_dijkstra_solver("in6") << std::endl;
-    std::cout << e_dijkstra_solver("in7") << std::endl;
+int main(int argc, char** argv) try {
+    //test0();
+    //test1();
+    //test2();
+    //test3();
+    //test4();
+    //test5();
 
 
-    answer["in0"] = 300;
-    answer["in1"] = 688;
-    answer["in2"] = 6;
-    answer["in3"] = 53;
-    answer["in4"] = 177;
-    answer["in5"] = 2843;
-    answer["in6"] = 3680;
-    answer["in7"] = 300000;
+    //std::vector<Item> store;
+    //std::vector<int> bag;
+    //int W = 0;
 
-    /*std::cout << test0() << std::endl;
-    std::cout << test1() << std::endl;
-    std::cout << test2() << std::endl;
-    std::cout << test3() << std::endl;
-    std::cout << test4() << std::endl;
-
-    std::cout << test5() << std::endl;
-    std::cout << test6() << std::endl;
-    std::cout << test7() << std::endl;
-    std::cout << test8() << std::endl;
-    std::cout << test9() << std::endl;
-
-    std::cout << test10() << std::endl;
-    std::cout << test11() << std::endl;
-    std::cout << test12() << std::endl;
-    std::cout << test13() << std::endl;
-    std::cout << test14() << std::endl;
-
-    std::cout << test15() << std::endl;
-    std::cout << test16() << std::endl;
-    std::cout << test17() << std::endl;
-    std::cout << test18() << std::endl;
-    std::cout << test19() << std::endl;
-
-    std::cout << test20() << std::endl;
-    std::cout << test21() << std::endl;
-    std::cout << test22() << std::endl;
-    std::cout << test23() << std::endl;
-    std::cout << test24() << std::endl;
-
-    std::cout << test25() << std::endl;
-    std::cout << test26() << std::endl;
-    std::cout << test27() << std::endl;
-    std::cout << test28() << std::endl;
-    std::cout << test29() << std::endl;
-     
-    std::cout << test30() << std::endl;
-    std::cout << test31() << std::endl;
-    std::cout << test32() << std::endl;
-    std::cout << test33() << std::endl;
-    std::cout << test34() << std::endl;
-
-    std::cout << test35() << std::endl;
-    std::cout << test36() << std::endl;
-    std::cout << test37() << std::endl;
-    std::cout << test38() << std::endl;
-    std::cout << test39() << std::endl;*/
-    //if (argc == 2) { // if 1 argument is provided, assume it is test number
+    //if (argc == 2) { //use test[ argv[1] ]
     //    int test = 0;
     //    std::sscanf(argv[1], "%i", &test);
-    //    std::cout << std::boolalpha << pTests[test]() << std::endl;
+    //    pTests[test]();
+    //    return 0;
     //}
-    //else { // if 2 arguments are provided, assume it is filename and range
-    //    if (argc == 3) {
-    //        int dist = 0;
-    //        std::sscanf(argv[2], "%i", &dist);
-    //        // solving specified file and max distance
-    //        // ./gcc0.exe my-input my-range
-    //        std::cout << std::boolalpha << e_dijkstra(argv[1], dist) << std::endl;
+
+    //if (argc == 3) {
+    //    readItems(argv[2], store, W);
+    //    int algorithm = 0;
+    //    std::sscanf(argv[1], "%i", &algorithm);
+    //    print(store);
+    //    std::cout << std::endl << "=========================" << std::endl;
+    //    if (algorithm == 1) {
+    //        std::cout << "Using recursive with memoization with items in \"" << argv[2] << "\"\n";
+    //        bag = knapsackRecMem(store, W);
     //    }
+    //    else {
+    //        std::cout << "Using dynamic programming with items in \"" << argv[2] << "\"\n";
+    //        bag = knapsackDP(store, W);
+    //    }
+    //    print_bag(bag, store, W);
     //}
-    return 0;
+    //else {
+    //    std::cout << "Usage: " << argv[0] << " <algorithm ( 1 - recursive with memoization, 2 - dynamic programming)> <input file>\n";
+    //    std::cout << "or     " << argv[0] << " <test number 0.." << sizeof(pTests) / sizeof(*pTests) << ">\n";
+    //    return 1;
+    //}
+
+    //print_bag(bag, store, W);
 }
-//test25
-//false
-//0m0.014s
-//
-//test26
-//true
-//0m0.288s
-//
-//test27
-//true
-//0m0.175s
-//
-//test28
-//false
-//0m0.009s
-//
-//test29
-//true
-//0m0.176s
+catch (char const* str) {
+    std::cout << str << std::endl;
+}
