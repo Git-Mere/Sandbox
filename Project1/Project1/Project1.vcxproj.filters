@@ -21,6 +21,9 @@
     <ClCompile Include="knapsack-dp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="sliding.window.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="items0">
@@ -44,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="knapsack-dp.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="sliding.window.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,184 +1,181 @@
-#include "knapsack-dp.h"
+#include <fstream>
+#include <limits>
 #include <iostream>
-#include <fstream> //ostream, istream
-#include <vector>
-#include <algorithm>
+#include <cstring> // strlen
+#include "sliding.window.h"
 
-void readItems(char const* filename, std::vector<Item>& items, int& W) {
-    std::ifstream in(filename, std::ifstream::in);
-    in >> W;
+std::string createStringFromFile(char const* filename)
+{
+    std::ifstream file(filename);
+    if (not file.is_open()) {
+        throw std::runtime_error("Could not open file");
+    }
+    std::string content((std::istreambuf_iterator<char>(file)),
+        (std::istreambuf_iterator<char>()));
+    return content;
+}
 
-    Item item;
-    in >> item;
-    while (in.good()) {
-        items.push_back(item);
-        in >> item;
+void testfile(char const* filename, char const* required_chars)
+{
+    std::cout << "Looking for chars \"" << required_chars << "\"\n";
+
+    std::string str = createStringFromFile(filename);
+    auto [start, length] = minWindow(str, required_chars);
+    if (length != std::numeric_limits<int>::max()) {
+        std::cout << "Min window substring: \"" << str.substr(start, length) << "\"\n";
+        std::cout << "Start pos: " << start << ", length: " << length << "\n";
+        if (length == strlen(required_chars)) {
+            std::cout << "Optimal solution found - substring is a permutation of required chars\n";
+        }
+    }
+    else {
+        std::cout << "No valid window found\n";
     }
 }
 
-void print_bag(std::vector<int> const& bag, std::vector<Item> const& store, int const& W) {
-    int total_weight = 0, total_value = 0;
-    std::vector<int>::const_iterator it = bag.begin(), it_e = bag.end();
-    for (; it != it_e; ++it) {
-        std::cout << store[*it] << " - ";
-        total_value += store[*it].value;
-        total_weight += store[*it].weight;
+void test0() // no duplicates in required_chars
+{
+    //                  01234567890123
+    std::string text = "ADOBECODEBANC";
+    //                  ------  0, 6          first window with all chars - record (current best)
+    //                  -------- 0, 10        second window with all chars - longer than best, skip
+    //                       ------ 5, 6      third window with all chars - same as best, skip
+    //                           ----- 9, 4   fourth window with all chars - shorter, update best - answer
+    std::string required_chars = "ABC"; // no duplicates
+
+    auto [start, length] = minWindow(text, required_chars);
+    if (length != std::numeric_limits<int>::max()) {
+        std::cout << "Min window substring: " << text.substr(start, length) << "\n";
+        std::cout << "Start pos: " << start << ", length: " << length << "\n";
     }
-    std::cout << "\nTotal grab " << total_value << " weighing " << total_weight << " (max " << W << ")\n";
+    else {
+        std::cout << "No valid window found\n";
+    }
 }
 
-void test0() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items0", store, W);
-    std::vector<int> bag = knapsackDP(store, W);
-    print_bag(bag, store, W);
+void test1() // no duplicates in required_chars
+{
+    //                            111111111112222
+    //                  0123456789012345678901234
+    std::string text = "A--B--C--D--A-B-C-D-ABCD";
+
+    //start positions and lengths of all windows containing all required chars:
+    //A--B--C--D
+    //start 0, length 10
+    //B--C--D--A
+    //start 3, length 10
+    //C--D--A-B
+    //start 6, length 9
+    //D--A-B-C
+    //start 9, length 8
+    //A-B-C-D
+    //start 12, length 7
+    //B-C-D-A
+    //start 14, length 7
+    //C-D-AB
+    //start 16, length 6
+    //D-ABC
+    //start 18, length 5
+    //ABCD
+    //start 20, length 4
+    std::string required_chars = "ABCD"; // no duplicates
+
+    auto [start, length] = minWindow(text, required_chars);
+    if (length != std::numeric_limits<int>::max()) {
+        std::cout << "Min window substring: " << text.substr(start, length) << "\n";
+        std::cout << "Start pos: " << start << ", length: " << length << "\n";
+    }
+    else {
+        std::cout << "No valid window found\n";
+    }
 }
 
-void test1() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items1", store, W);
-    std::vector<int> bag = knapsackDP(store, W);
-    print_bag(bag, store, W);
+void test2()
+{
+    testfile("in0.txt", "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 }
 
-void test2() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items2", store, W);
-    std::vector<int> bag = knapsackDP(store, W);
-    print_bag(bag, store, W);
+void test3()
+{
+    testfile("in1.txt", "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 }
 
-void test3() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items3", store, W);
-    std::vector<int> bag = knapsackDP(store, W);
-    print_bag(bag, store, W);
+void test4()
+{
+    testfile("in2.txt", "CODE");
 }
 
-void test4() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items4", store, W);
-    std::vector<int> bag = knapsackDP(store, W);
-    print_bag(bag, store, W);
+void test5()
+{
+    testfile("in2.txt", "SWITCH");
 }
 
-void test5() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items5", store, W);
-    std::vector<int> bag = knapsackDP(store, W);
-    print_bag(bag, store, W);
+void test6()
+{
+    testfile("in2.txt", "BINARY");
 }
 
-void test6() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items0", store, W);
-    std::vector<int> bag = knapsackRecMem(store, W);
-    print_bag(bag, store, W);
+void test7()
+{
+    testfile("pi.1000.digits.txt", "0123456789");
 }
 
-void test7() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items1", store, W);
-    std::vector<int> bag = knapsackRecMem(store, W);
-    print_bag(bag, store, W);
+// tests with repeated chars in required_chars - extra credit
+void test8()
+{
+    //                  01234567890123
+    std::string text = "ABAAAAABAAAB";
+    //                   -------    1, 7  - best so far
+    //                   --------   1, 8  - longer - skip
+    //                   ---------  1, 9  - longer - skip
+    //                   ---------- 1, 10 - longer - skip
+    //                        ----- 7, 5  - has all chars - shorter - update best
+
+    std::string required_chars = "AABB";
+
+    auto [start, length] = minWindow(text, required_chars);
+    if (length != std::numeric_limits<int>::max()) {
+        std::cout << "Min window substring: " << text.substr(start, length) << "\n";
+        std::cout << "Start pos: " << start << ", length: " << length << "\n";
+    }
+    else {
+        std::cout << "No valid window found\n";
+    }
 }
 
-void test8() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items2", store, W);
-    std::vector<int> bag = knapsackRecMem(store, W);
-    print_bag(bag, store, W);
+void test9()
+{
+    testfile("pi.1000.digits.txt", "00112233445566778899");
 }
 
-void test9() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items3", store, W);
-    std::vector<int> bag = knapsackRecMem(store, W);
-    print_bag(bag, store, W);
+void test10()
+{
+    testfile("pi.1000.digits.txt", "000111222333444555666777888999");
 }
 
-void test10() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items4", store, W);
-    std::vector<int> bag = knapsackRecMem(store, W);
-    print_bag(bag, store, W);
+void test11()
+{
+    testfile("the.raven.txt", "albatros");
 }
 
-void test11() {
-    int W = 0;
-    std::vector<Item> store;
-    readItems("items5", store, W);
-    std::vector<int> bag = knapsackRecMem(store, W);
-    print_bag(bag, store, W);
+void test12()
+{
+    testfile("the.raven.txt", "nightingale");
 }
 
-
-void (*pTests[])() = {
-    test0,test1,test2,test3,test4,test5,
-    test6,test7,test8,test9,test10,test11
-};
-
-int main(int argc, char** argv) try {
-    //test0();
-    //test1();
-    //test2();
-    //test3();
-    //test4();
-    //test5();
-    test6();
-    test7();
-    test8();
-    test9();
-    test10();
-    test11();
+void (*pTests[])() = { test0, test1, test2, test3, test4, test5, test6, test7, test8, test9, test10, test11, test12 };
 
 
-    //std::vector<Item> store;
-    //std::vector<int> bag;
-    //int W = 0;
+#include <cstdlib> // sscanf, etc
+int main(int argc, char* argv[])
+{
 
-    //if (argc == 2) { //use test[ argv[1] ]
-    //    int test = 0;
-    //    std::sscanf(argv[1], "%i", &test);
-    //    pTests[test]();
-    //    return 0;
+    test0();
+    //int testNum = 0;
+    //if (argc > 1) {
+    //    testNum = std::sscanf(argv[1], "%d", &testNum) == 1 ? testNum : 0;
     //}
+    //pTests[testNum]();
 
-    //if (argc == 3) {
-    //    readItems(argv[2], store, W);
-    //    int algorithm = 0;
-    //    std::sscanf(argv[1], "%i", &algorithm);
-    //    print(store);
-    //    std::cout << std::endl << "=========================" << std::endl;
-    //    if (algorithm == 1) {
-    //        std::cout << "Using recursive with memoization with items in \"" << argv[2] << "\"\n";
-    //        bag = knapsackRecMem(store, W);
-    //    }
-    //    else {
-    //        std::cout << "Using dynamic programming with items in \"" << argv[2] << "\"\n";
-    //        bag = knapsackDP(store, W);
-    //    }
-    //    print_bag(bag, store, W);
-    //}
-    //else {
-    //    std::cout << "Usage: " << argv[0] << " <algorithm ( 1 - recursive with memoization, 2 - dynamic programming)> <input file>\n";
-    //    std::cout << "or     " << argv[0] << " <test number 0.." << sizeof(pTests) / sizeof(*pTests) << ">\n";
-    //    return 1;
-    //}
-
-    //print_bag(bag, store, W);
-}
-catch (char const* str) {
-    std::cout << str << std::endl;
+    return 0;
 }
