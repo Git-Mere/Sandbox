@@ -124,23 +124,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="knapsack-dp.cpp" />
     <ClCompile Include="main.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="sliding.window.cpp" />
+    <ClCompile Include="overlap.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="items0" />
-    <None Include="items1" />
-    <None Include="items2" />
-    <None Include="items3" />
-    <None Include="items4" />
-    <None Include="items5" />
+    <ClInclude Include="overlap.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="knapsack-dp.h" />
-    <ClInclude Include="sliding.window.h" />
+    <None Include="in0" />
+    <None Include="in0.ps" />
+    <None Include="in1" />
+    <None Include="in1.ps" />
+    <None Include="in2" />
+    <None Include="in2.ps" />
+    <None Include="in3" />
+    <None Include="in4" />
+    <None Include="in5" />
+    <None Include="in6" />
+    <None Include="in7" />
+    <None Include="in8" />
+    <None Include="in_scan" />
+    <None Include="in_scan_10" />
+    <None Include="out0" />
+    <None Include="out1" />
+    <None Include="out10" />
+    <None Include="out2" />
+    <None Include="out3" />
+    <None Include="out4" />
+    <None Include="out5" />
+    <None Include="out6" />
+    <None Include="out7" />
+    <None Include="out8" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -18,39 +18,87 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="knapsack-dp.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="sliding.window.cpp">
+    <ClCompile Include="overlap.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="items0">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="items1">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="items2">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="items3">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="items4">
-      <Filter>리소스 파일</Filter>
-    </None>
-    <None Include="items5">
-      <Filter>리소스 파일</Filter>
-    </None>
+    <ClInclude Include="overlap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="knapsack-dp.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="sliding.window.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
+    <None Include="in_scan">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in_scan_10">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in0">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in0.ps">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in1">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in1.ps">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in2.ps">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in3">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in4">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in5">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in6">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in7">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="in8">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out0">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out1">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out3">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out4">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out5">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out6">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out7">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out8">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="out10">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>
