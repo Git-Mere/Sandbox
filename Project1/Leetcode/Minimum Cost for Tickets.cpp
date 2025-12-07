@@ -1,27 +1,15 @@
 #include "Dynamic Programming.h"
-int DP::mincostTickets(std::vector<int>& days, std::vector<int>& costs) {
+#include <unordered_set>
 
+int DP::mincostTickets(vector<int>& days, vector<int>& costs) {
+
+    unordered_set<int> travel(begin(days), end(days));
     int size = *max_element(days.begin(), days.end());
-    std::vector<int> dp(size + 1, size + 1);
 
-    for (int cost : costs) {
-        dp[cost] = cost;
-    }
-
-    for (int i = 1; i <= size; i++) {
-        for (int day : days) {
-            if (day == i) {
-                for (int cost : costs) {
-                    if (i - cost >= 0) {
-                        dp[i] = min(dp[i - cost] + cost, dp[i]);
-                    }
-                }
-                break;
-            }
-            else {
-                dp[i] = dp[i - 1];
-            }
-        }
+    vector<int> dp(size + 1, 0);
+    for (int i = 1; i <= size; ++i) {
+        if (travel.find(i) == travel.end()) dp[i] = dp[i - 1];
+        else dp[i] = min({ dp[i - 1] + costs[0], dp[max(0, i - 7)] + costs[1], dp[max(0, i - 30)] + costs[2] });
     }
     return dp[size];
 }
