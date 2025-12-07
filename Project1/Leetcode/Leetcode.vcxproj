@@ -138,6 +138,7 @@
     <ClCompile Include="Maximum Product Subarray.cpp" />
     <ClCompile Include="Maxumym subarray.cpp" />
     <ClCompile Include="Mergesort.cpp" />
+    <ClCompile Include="Minimum Cost for Tickets.cpp" />
     <ClCompile Include="Missing Number.cpp" />
     <ClCompile Include="Number of 1 Bits.cpp" />
     <ClCompile Include="Product of Array except Self.cpp" />

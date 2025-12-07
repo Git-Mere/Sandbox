@@ -15,4 +15,5 @@ namespace DP {
 	int lengthOfLIS(vector<int>& nums);
 	int longestCommonSubsequence(string text1, string text2);
 	bool wordBreak(string s, vector<string>& wordDict);
+	int mincostTickets(std::vector<int>& days, std::vector<int>& costs);
 }
